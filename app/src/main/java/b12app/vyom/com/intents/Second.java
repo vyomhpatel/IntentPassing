@@ -3,6 +3,8 @@ package b12app.vyom.com.intents;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -17,6 +19,7 @@ public class Second extends AppCompatActivity {
         TextView tvShow = findViewById(R.id.tvShow);
         Intent i = getIntent();
         tvShow.setText(i.getStringExtra("MSG").toString());;
+
 
     }
 }

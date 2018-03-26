@@ -1,5 +1,6 @@
 package b12app.vyom.com.intents;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,7 +8,11 @@ import android.view.View;
 import android.widget.Button;
 
 public class First extends AppCompatActivity {
+    public static final String CALCULATOR_PACKAGE ="com.android.calculator2";
+    public static final String CALCULATOR_CLASS ="com.android.calculator2.Calculator";
 
+    public static final String MENU_PACKAGE = "b12app.vyom.com.menu";
+    public static final String MENU_CLASS = "b12app.vyom.com.menu.MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +21,30 @@ public class First extends AppCompatActivity {
         Button btn1 = findViewById(R.id.btnFirst);
         Button btn2 = findViewById(R.id.btnSecond);
         Button btn3 = findViewById(R.id.btnThird);
+
+        Button btnCal = findViewById(R.id.btnCal);
+        btnCal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent();
+                i.setAction(Intent.ACTION_MAIN);
+                i.addCategory(Intent.CATEGORY_LAUNCHER);
+                i.setComponent(new ComponentName(CALCULATOR_PACKAGE,CALCULATOR_CLASS));
+                startActivity(i);
+
+            }
+        });
+
+        Button send = findViewById(R.id.button2);
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent();
+                i.setAction(Intent.ACTION_MAIN);
+                i.setComponent(new ComponentName(MENU_PACKAGE,MENU_CLASS));
+                startActivity(i);
+            }
+        });
     }
 
     public void send(View view) {
